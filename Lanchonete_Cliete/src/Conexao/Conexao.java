@@ -4,8 +4,8 @@ import java.sql.*;
 import javax.swing.*;
 
 public class Conexao {
-    final private String driver = "com.mysql.jdbc.Driver";
-    final private String url = "jdbc:mysql://localhost:3306/Restaurante";
+final private String driver = "com.mysql.jdbc.Driver ";
+    final private String url = "jdbc:mysql://localhost:3306/Restaurante?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"; 
     final private String usuario = "root";
     final private String senha = "";
 

@@ -228,7 +228,8 @@ public class ItemDAO {
     
     public List<Item> listarCardapioDisponivel() {
         List<Item> itens = new ArrayList<>();
-        String sql = "SELECT id, nome, preco FROM itens WHERE status = 1";
+        // CORREÇÃO: Adicionada a coluna 'imagem' na query SQL
+        String sql = "SELECT id, nome, preco, imagem FROM Item WHERE status = 1"; 
         
         try (PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
@@ -237,7 +238,8 @@ public class ItemDAO {
                 item.setId(rs.getInt("id"));
                 item.setNome(rs.getString("nome"));
                 item.setPreco(rs.getDouble("preco"));
-                
+                item.setImagem(rs.getString("imagem"));
+                 
                 itens.add(item);
             }
         } catch (SQLException e) {
