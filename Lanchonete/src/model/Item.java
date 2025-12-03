@@ -1,0 +1,102 @@
+package model;
+
+import java.io.Serializable;
+
+public class Item implements Serializable{
+    private int id;
+    private String nome;
+    private String categoria;
+    private double preco; 
+    private int status;
+    private int qtdEstoque;
+    private String imagem;
+
+    public Item() {
+    }
+    
+    public Item(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+    
+    public Item(int id, String nome, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getQtdEstoque() {
+        return qtdEstoque;
+    }
+
+    public void setQtdEstoque(int qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+    
+    @Override
+    public String toString() {
+        return nome + " - R$ " + String.format("%.2f", preco);
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        
+        Item item = (Item) obj;
+        return id == item.id;
+    }
+    
+    @Override
+    public int hashCode() {
+        return id;
+    }
+}
